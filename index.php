@@ -1,16 +1,14 @@
 <?php
-include('./includes/config.inc.php');
 
-//$keres = current($oldalak);
-$keres = $oldalak['/'];
-if (isset($_GET['oldal'])) {
-	if (isset($oldalak[$_GET['oldal']]) && file_exists("./templates/pages/{$oldalak[$_GET['oldal']]['fajl']}.tpl.php")) {
-		$keres = $oldalak[$_GET['oldal']];
-	}
-	else { 
-		$keres = $hiba_oldal;
-		header("HTTP/1.0 404 Not Found");
-	}
-}
-include('./templates/index.tpl.php'); 
-?>
+$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
+
+$segments = explode("/", $path);
+
+$action = $segments[2];
+$controller = $segments[1];
+
+require "src/controllers/$controller.php";
+
+$controller_object = new $controller;
+
+$controller_object->$action();
