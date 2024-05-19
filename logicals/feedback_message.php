@@ -8,12 +8,12 @@ try {
 }
 
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-    $name = htmlspecialchars($_POST['name']);
+    $name =  (isset($_SESSION['login'])) ? htmlspecialchars($_SESSION['fname']) : 'Guest';
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
     $isValid = true;
 
-    if (empty($name) || empty($email) || empty($message)) {
+    if (empty($email) || empty($message)) {
         $isValid = false;
         $errormessage = "All fields are required.";
     } elseif (!filter_var($email, FILTER_VALIDATE_EMAIL)) {

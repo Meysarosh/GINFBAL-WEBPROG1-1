@@ -17,10 +17,10 @@ $pages = array(
     'gallery' => array('fajl' => 'gallery', 'szoveg' => 'Gallery', 'menun' => array(1, 1)),
     'feedback' => array('fajl' => 'feedback', 'szoveg' => 'Feedback', 'menun' => array(1, 1)),
     'messages' => array('fajl' => 'messages', 'szoveg' => 'Messages', 'menun' => array(1, 1)),
-    'belepes' => array('fajl' => 'belepes', 'szoveg' => 'Belépés', 'menun' => array(1, 0)),
-    'kilepes' => array('fajl' => 'kilepes', 'szoveg' => 'Kilépés', 'menun' => array(0, 1)),
-    'belep' => array('fajl' => 'belep', 'szoveg' => '', 'menun' => array(0, 0)),
-    'regisztral' => array('fajl' => 'regisztral', 'szoveg' => '', 'menun' => array(0, 0)),
+    'login' => array('fajl' => 'login', 'szoveg' => 'Login', 'menun' => array(1, 0)),
+    'logout' => array('fajl' => 'logout', 'szoveg' => 'Logout', 'menun' => array(0, 1)),
+    'singin' => array('fajl' => 'singin', 'szoveg' => '', 'menun' => array(0, 0)),
+    'singup' => array('fajl' => 'singup', 'szoveg' => '', 'menun' => array(0, 0)),
     'feedback_message' => array('fajl' => 'feedback_message', 'szoveg' => '', 'menun' => array(0, 0))
 );
 

@@ -32,6 +32,8 @@
                 </div>
                 <button type="submit" class="btn btn-primary">Upload Image</button>
             </form>
+        <?php } else { ?>
+            <p>Login to upload an image</p>
         <?php } ?>
 
 
