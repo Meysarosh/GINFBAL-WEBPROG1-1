@@ -29,13 +29,15 @@
 		<div class="header-info">
 			<img class="logo" src="./media/<?= $header['imgsrc'] ?>" alt="<?= $header['imgalt'] ?>">
 			<h1 class="heading"><?= $header['title'] ?></h1>
-			<?php if (isset($_SESSION['login'])) { ?>Bejlentkezve: <strong><?= $_SESSION['csn'] . " " . $_SESSION['un'] . " (" . $_SESSION['login'] . ")" ?></strong><?php } ?>
+
+			<?php if (isset($_SESSION['login'])) { ?> <div>Bejlentkezve: <strong><?= $_SESSION['lname'] . " " . $_SESSION['fname'] . " (" . $_SESSION['login'] . ")" ?></strong> </div><?php } ?>
+
 		</div>
 		<nav class="header-nav">
 			<ul class="menu">
 				<?php foreach ($pages as $url => $oldal) { ?>
 					<?php if (!isset($_SESSION['login']) && $oldal['menun'][0] || isset($_SESSION['login']) && $oldal['menun'][1]) { ?>
-						<li class="menu_item" <?= (($oldal == $keres) ? ' class="active"' : '') ?>>
+						<li <?= (($oldal == $keres) ? ' class="active menu_item"' : ' class="menu_item"') ?>>
 							<a href="<?= ($url == '/') ? '.' : ('?page=' . $url) ?>">
 								<?= $oldal['szoveg'] ?></a>
 						</li>
@@ -45,7 +47,7 @@
 		</nav>
 	</header>
 
-	<div class="flex-fill bg-light">
+	<div class="flex-fill">
 
 		<?php include("./templates/pages/{$keres['fajl']}.tpl.php"); ?>
 	</div>
