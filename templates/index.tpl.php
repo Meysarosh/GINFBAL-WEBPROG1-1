@@ -27,9 +27,10 @@
 <body class="container-fluid full-height d-flex flex-column">
 	<header class="header">
 		<div class="header-info">
-			<img class="logo" src="./media/<?= $header['imgsrc'] ?>" alt="<?= $header['imgalt'] ?>">
-			<h1 class="heading"><?= $header['title'] ?></h1>
-
+			<div>
+				<img class="logo" src="./media/<?= $header['imgsrc'] ?>" alt="<?= $header['imgalt'] ?>">
+				<h1 class="heading"><?= $header['title'] ?></h1>
+			</div>
 			<?php if (isset($_SESSION['login'])) { ?> <div>Bejlentkezve: <strong><?= $_SESSION['lname'] . " " . $_SESSION['fname'] . " (" . $_SESSION['login'] . ")" ?></strong> </div><?php } ?>
 
 		</div>
