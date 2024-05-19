@@ -1,14 +1,13 @@
 <?php
+include('./includes/config.inc.php');
 
-$path = parse_url($_SERVER["REQUEST_URI"], PHP_URL_PATH);
-
-$segments = explode("/", $path);
-
-$action = $segments[2];
-$controller = $segments[1];
-
-require "src/controllers/$controller.php";
-
-$controller_object = new $controller;
-
-$controller_object->$action();
+$keres = $pages['/'];
+if (isset($_GET['page'])) {
+	if (isset($pages[$_GET['page']]) && file_exists("./templates/pages/{$pages[$_GET['page']]['fajl']}.tpl.php")) {
+		$keres = $pages[$_GET['page']];
+	} else {
+		$keres = $hiba_oldal;
+		header("HTTP/1.0 404 Not Found");
+	}
+}
+include('./templates/index.tpl.php');
